@@ -1,6 +1,6 @@
 <template>
-	<view class="content">
-		个人中心
+	<view>
+		goods
 	</view>
 </template>
 
@@ -11,15 +11,12 @@
 				
 			}
 		},
-		onLoad() {
-			if(!this.$u.utils.validToken()) return
-		},
 		methods: {
-
+			
 		}
 	}
 </script>
 
-<style lang="scss" scoped>
-	
+<style>
+
 </style>
