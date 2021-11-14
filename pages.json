@@ -16,6 +16,12 @@
 			}
 		}
 	    ,{
+			"path": "pages/center/baseInfo",
+			"style": {
+				"navigationBarTitleText": "个人设置"
+			}
+		}
+	    ,{
             "path" : "pages/cart/cart",
             "style" :                                                                                    
             {
@@ -29,6 +35,14 @@
             "style" :                                                                                    
             {
                 "navigationBarTitleText": "商品列表",
+                "enablePullDownRefresh": false
+            }
+            
+        },{
+            "path" : "pages/goods/goodsInfo",
+            "style" :                                                                                    
+            {
+                "navigationBarTitleText": "商品信息",
                 "enablePullDownRefresh": false
             }
             
@@ -47,7 +61,7 @@
 	"globalStyle": {
 		"navigationBarTextStyle": "black",
 		"navigationBarTitleText": "uView",
-		"navigationBarBackgroundColor": "#F8F8F8",
+		"navigationBarBackgroundColor": "#FFFFFF",
 		"backgroundColor": "#F8F8F8"
 	},
 	"tabBar": {

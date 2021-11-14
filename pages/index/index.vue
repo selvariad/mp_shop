@@ -23,10 +23,10 @@
 				slides:[],
 				sortList:[{name:'默认'},{name:'销量'},{name:'推荐'},{name:'最新'}],
 				goods:[],
-				loading:false
+				loading:false,
 			}
 		},
-		onLoad() {
+		onLoad(options) {
 			this.$u.utils.validToken()
 			
 			this.getNewData()

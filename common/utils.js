@@ -23,9 +23,17 @@ const install = (Vue,vm) => {
 			return false
 		}
 		return true
+	};
+	// 用户信息变更时更新信息
+	const UpdateUserInfo = async () => {
+		// 重新请求用户信息
+		const UserInfo = await vm.$u.api.getUserInfo()
+		// 重新缓存用户信息
+		vm.$u.vuex('vuex_user',UserInfo)
 	}
 	vm.$u.utils = {
-		validToken
+		validToken,
+		UpdateUserInfo
 	}
 }
 

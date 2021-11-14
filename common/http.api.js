@@ -10,15 +10,42 @@ const install = (Vue, vm) => {
 	const getLogin = params => vm.$u.post('/api/auth/login', params);
 	// 注册认证
 	const getRegister = params => vm.$u.post('/api/auth/register', params);
-	// 用户认证
+	// 用户信息认证
 	const getUserInfo = () => vm.$u.get('/api/user')
+	// 修改用户信息
+	const UserInfoUpdate = params => vm.$u.put('/api/user',params)
+	// 头像上传
+	const avatarUpdate = () => vm.$u.get('/api/auth/oss/token')
+	// 更新头像
+	const avatarRefresh = params => vm.$u.patch('/api/user/avatar',params)
+	// 退出登录
+	const Logout = () => vm.$u.post('/api/auth/logout');
+	// 获取商品
+	const getGoods = params => vm.$u.get('/api/goods',params)
+	// 获取商品信息
+	const getGoodsInfo = id => vm.$u.get(`/api/goods/${id}`)
+	// 商品收藏
+	const goodsCollect = id => vm.$u.post(`/api/collects/goods/${id}`)
+	// 添加购物车
+	const addCart = params => vm.$u.post('/api/carts',params)
+	// 请求购物车列表
+	const getCartList = () => vm.$u.get('/api/carts')
 	
 	// 将各个定义的接口名称，统一放进对象挂载到vm.$u.api(因为vm就是this，也即this.$u.api)下
 	vm.$u.api = {
 		getIndex,
 		getLogin,
 		getRegister,
-		getUserInfo
+		getUserInfo,
+		UserInfoUpdate,
+		avatarUpdate,
+		avatarRefresh,
+		Logout,
+		getGoods,
+		getGoodsInfo,
+		goodsCollect,
+		addCart,
+		getCartList
 	};
 }
 

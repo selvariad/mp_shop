@@ -69,13 +69,14 @@ const install = (Vue, vm) => {
 			// 并将进入this.$u.post(url).then().catch(res=>{})的catch回调中，res为服务端的返回值
 			return false;
 		}
-		vm.$u.patch = (url, params = {}, header = {}) => {
-			const _params = {
-				...params,
-				_method:'PATCH' //模拟patch请求，将请求的method字段修改
-			}
-			return vm.$u.post(url,_params,header)
+	}
+	//模拟patch请求，将请求的method字段修改
+	vm.$u.patch = (url, params = {}, header = {}) => {
+		const _params = {
+			...params,
+			_method:'PATCH' 
 		}
+		return vm.$u.post( url,_params,header )
 	}
 }
 
