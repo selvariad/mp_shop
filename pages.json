@@ -31,6 +31,15 @@
             
         }
         ,{
+            "path" : "pages/cart/order",
+            "style" :                                                                                    
+            {
+                "navigationBarTitleText": "订单结算",
+                "enablePullDownRefresh": false
+            }
+            
+        }
+        ,{
             "path" : "pages/goods/goods",
             "style" :                                                                                    
             {

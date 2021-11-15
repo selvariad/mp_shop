@@ -70,7 +70,7 @@
 							<u-icon v-else name="heart-fill" :size="40" color="red"></u-icon>
 							<view class="text u-line-1">{{ isCollect == 1 ? "已收藏" : "收藏"}}</view>
 						</view>
-						<view class="item" @tap="Cart">
+						<view class="item" @tap="toCart">
 							<u-badge :count="cartCount" bgColor="#2979ff" :is-center="true"></u-badge>
 							<u-icon name="shopping-cart" :size="40" :color="$u.color['contentColor']"></u-icon>
 							<view class="text u-line-1">购物车</view>
@@ -149,12 +149,18 @@
 					// 请求加入购物车API
 					const collectInfo = {
 						'goods_id':this.goodsId,
-						'num':this.goodsInfo.stock
+						'num':1
 					}
 					await this.$u.api.addCart(collectInfo)
 					this.$u.toast('添加购物车成功~')
 					this.getCartCount()
 				}
+			},
+			async toCart () {
+				this.$u.route({
+					type:'switchTab',
+					url:'pages/cart/cart'
+				})
 			},
 			async getCartCount () {
 				// 验证是否已登录
