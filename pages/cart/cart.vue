@@ -48,7 +48,7 @@
 					<text class="title">合计:</text>
 					<text class="price">￥{{getTotalPrice}}</text>
 				</view>
-				<u-button type="primary" :ripple="true" shape="square" @click="toOrder">去结算</u-button>
+				<u-button type="primary" :ripple="true" shape="circle" @click="toOrder">去结算</u-button>
 			</view>
 		</view>
 	</view>
@@ -214,23 +214,20 @@
 
 						.priceNum {
 							width: 100%;
-
 						}
 					}
 				}
 			}
 		}
-
 		.bottomFixed {
 			display: flex;
-			padding: 20rpx 0;
 			align-items: center;
 			background-color: #fff;
 			position: fixed;
 			left: 0;
 			right: 0;
-			bottom: 120rpx;
-			padding: 0 15rpx;
+			bottom: 98rpx;
+			padding: 20rpx 20rpx;
 		}
 	}
 </style>

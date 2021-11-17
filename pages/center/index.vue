@@ -18,7 +18,7 @@
 		
 		<view class="u-m-t-20">
 			<u-cell-group>
-				<u-cell-item icon="rmb-circle" title="所有订单"></u-cell-item>
+				<u-cell-item icon="rmb-circle" title="所有订单" @click="toOrderList"></u-cell-item>
 			</u-cell-group>
 		</view>
 		
@@ -26,8 +26,8 @@
 			<u-cell-group>
 				<u-cell-item icon="star" title="收藏"></u-cell-item>
 				<u-cell-item icon="coupon" title="卡券"></u-cell-item>
-				<u-cell-item icon="heart" title="关注"></u-cell-item>
-				<u-cell-item icon="map" title="地址管理"></u-cell-item>
+				<u-cell-item icon="heart" title="收藏"></u-cell-item>
+				<u-cell-item icon="map" title="地址管理" @click="toAddress"></u-cell-item>
 			</u-cell-group>
 		</view>
 		
@@ -48,7 +48,6 @@
 	export default {
 		data() {
 			return {
-				pic:'https://uviewui.com/common/logo.png',
 				show:true
 			}
 		},
@@ -56,9 +55,22 @@
 			if(!this.$u.utils.validToken()) return
 		},
 		methods: {
+			// 跳转前往修改个人信息
 			toBaseInfo() {
 				this.$u.route({
 					url:'pages/center/baseInfo'
+				})
+			},
+			// 跳转前往地址管理
+			toAddress () {
+				this.$u.route({
+					url:'pages/center/address'
+				})
+			},
+			// 跳转前往所有订单
+			toOrderList() {
+				this.$u.route({
+					url:'pages/center/orderList'
 				})
 			},
 			async logout(){

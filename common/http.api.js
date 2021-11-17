@@ -38,6 +38,20 @@ const install = (Vue, vm) => {
 	const removeCartGoods = cart => vm.$u.delete(`/api/carts/${cart}`);
 	// 请求订单结算浏览
 	const getOrderPreview = () => vm.$u.get('/api/orders/preview')
+	// 请求用户地址列表
+	const getUserAddress = () => vm.$u.get('/api/address')
+	// 添加新地址
+	const addAddress = params => vm.$u.post('/api/address',params)
+	// 删除地址
+	const removeAddress = address => vm.$u.delete(`/api/address/${address}`);
+	// 更新地址
+	const editAddress = (address,params) => vm.$u.put(`/api/address/${address}`,params)
+	// 设置为默认地址
+	const setDefaultAddress = id => vm.$u.patch(`/api/address/${id}/default`)
+	// 获取订单列表
+	const getOrderList = () => vm.$u.get('/api/orders?include=orderDetails.goods')
+	// 获取订单详细
+	const getOrderDetail = order => vm.$u.get(`/api/orders/${order}?include=goods,orderDetails`)
 	
 	// 将各个定义的接口名称，统一放进对象挂载到vm.$u.api(因为vm就是this，也即this.$u.api)下
 	vm.$u.api = {
@@ -57,7 +71,14 @@ const install = (Vue, vm) => {
 		getCartChecked,
 		cartCountUpdata,
 		removeCartGoods,
-		getOrderPreview
+		getOrderPreview,
+		getUserAddress,
+		addAddress,
+		removeAddress,
+		editAddress,
+		setDefaultAddress,
+		getOrderList,
+		getOrderDetail
 	};
 }
 
